@@ -41,3 +41,11 @@
   [nodemon] starting `node app.js`
   Listening on Port: 5000
   ```
+
+### Adding Middleware and Layouts
+- Add dependencies for: 
+    - body-parser
+        - Parsing middleware: helps in passing data from forms
+    - Handlebars    
+    - mysql
+- Add a dependency for the _.env_ file

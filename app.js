@@ -1,4 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+const mysql = require('mysql');
+
+// Import Environment variables from .env file
+require('dotenv').config();
 
 // Instantiate the Express server
 const app = express();
