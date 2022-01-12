@@ -41,3 +41,22 @@
   [nodemon] starting `node app.js`
   Listening on Port: 5000
   ```
+
+### Adding Middleware and Layouts
+- Add dependencies for: 
+    - [body-parser](https://www.npmjs.com/package/body-parser)
+        - Parsing middleware: helps in passing data from forms
+    - [Handlebars](https://handlebarsjs.com/)
+    - mysql
+- Add a dependency for the _.env_ file
+- Add a new directory for the _static_ files.
+- Set up the Templating engine (Handlebars)
+    - The default file extension for Handlebars is _.handlebars_, you'll shorten that with the _extname_ option
+    - Set Handlebars as the view engine
+- Add a new directory for the Handlebar views
+    - By default Handbars looks for a directory named views
+        - will also look for another directory named layouts
+    - Add a Handlebars template that will service as the default layout: _main.hbs_
+    - Add a Handlebars template that will serve as the Homepage: _home.hbs_
+- Add a route for the first view in _app.js_
+- Start setting up the main HTML layout.
