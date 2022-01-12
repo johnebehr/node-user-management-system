@@ -46,8 +46,11 @@
 - Add dependencies for: 
     - [body-parser](https://www.npmjs.com/package/body-parser)
         - Parsing middleware: helps in passing data from forms
-    - Handlebars    
+    - [Handlebars](https://handlebarsjs.com/)
     - mysql
 - Add a dependency for the _.env_ file
 - Add a new directory for the _static_ files.
+- Set up the Templating engine (Handlebars)
+    - The default file extension for Handlebars is _.handlebars_, you'll shorten that with the _extname_ option
+    - Set Handlebars as the view engine
 
