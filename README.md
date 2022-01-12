@@ -49,3 +49,5 @@
     - Handlebars    
     - mysql
 - Add a dependency for the _.env_ file
+- Add a new directory for the _static_ files.
+

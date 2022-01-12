@@ -18,5 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Parse application/json
 app.use(bodyParser.json());
 
+// Declare the static directory 
+app.use(express.static('public'));
+
 // Tell Express to listen on the port
 app.listen(port, () => console.log(`Listening on Port: ${port}`));
