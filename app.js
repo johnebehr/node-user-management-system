@@ -3,6 +3,11 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const mysql = require('mysql');
 
+// Change the handlebar file extension from .handlebars -> .hbs
+const handlebars = exphbs.create({
+    extname: '.hbs'
+});
+
 // Import Environment variables from .env file
 require('dotenv').config();
 
@@ -22,10 +27,15 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // Set up the Templating engine
-app.engine('hbs', exphbs({extname: 'hbs'})); // Adjust the file extension to '.hbs'
+// app.engine('hbs', exphbs({extName: '.hbs'})); // Presentation code
+app.engine('hbs', handlebars.engine);
 // Set the View engine to Handlebars
 app.set('view engine', 'hbs');
 
+// Add an initial route
+app.get('', (req, res) => {
+    res.render('home');
+});
 
 // Tell Express to listen on the port
 app.listen(port, () => console.log(`Listening on Port: ${port}`));
