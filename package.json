@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-usermanagement",
+  "version": "1.0.0",
+  "description": "<div style=\"text-align:center\"> <h1>User Management System</h1> <h2>Node.js, Express, MySQL & Express-Handlebars</h2> </div> <hr style=\"border: 3px solid #393e46; width:70%; margin:0 auto;\">",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnebehr/node-user-management-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnebehr/node-user-management-system/issues"
+  },
+  "homepage": "https://github.com/johnebehr/node-user-management-system#readme",
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
