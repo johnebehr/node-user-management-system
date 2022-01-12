@@ -44,7 +44,7 @@
 
 ### Adding Middleware and Layouts
 - Add dependencies for: 
-    - body-parser
+    - [body-parser](https://www.npmjs.com/package/body-parser)
         - Parsing middleware: helps in passing data from forms
     - Handlebars    
     - mysql
