@@ -60,3 +60,8 @@
     - Add a Handlebars template that will serve as the Homepage: _home.hbs_
 - Add a route for the first view in _app.js_
 - Start setting up the main HTML layout.
+
+### Setting up Bootstrap
+- All of the Bootstrap items are being delivered via CDN
+- Pull the Bootstrap: CSS, Icons, JS, and Navbar
+- Add the default container for the content, _body_, section 
