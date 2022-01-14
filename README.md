@@ -72,3 +72,10 @@
     - Define the _user_ table and create it.
     - Add some mock data
 - Create a connection pool and _.env_ file (remember, the database server is running in a separate container).
+
+### Routes and Controllers
+- Refactor app.js to declutter it and provide organization for you controllers and routes.
+- Add a new directory: _server_ and two subdirectories: _controllers_ and _routes_
+
+#### Refactor
+- Move the existing route to _server/routes/user.js_
