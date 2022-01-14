@@ -78,3 +78,9 @@
 - Add a new directory: _server_ and two subdirectories: _controllers_ and _routes_
 - Move the existing route to _server/routes/user.js_
 - Add the logic for the route to _server/controllers/userController.js_
+
+### Home - Querying Data
+- Institute a MySQL query for user data to display on the Home page
+- Query the database and pass the results to the template engine. 
+    - Also console.log the query result to make sure that data is returned.
+    
