@@ -48,11 +48,11 @@ pool.getConnection((err, connection) => {
     console.log(`Connected as ID: ${connection.threadId}`);
 });
 
+// Let Express know where to find the routes
+const routes = require('./server/routes/user');
+// Implement the routes
+app.use('/', routes);
 
-// Add an initial route
-app.get('', (req, res) => {
-    res.render('home');
-});
 
 // Tell Express to listen on the port
 app.listen(port, () => console.log(`Listening on Port: ${port}`));
