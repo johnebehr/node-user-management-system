@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const mysql = require('mysql');
+const { DEC8_BIN } = require('mysql/lib/protocol/constants/charsets');
 
 // Change the handlebar file extension from .handlebars -> .hbs
 const handlebars = exphbs.create({
@@ -31,6 +32,22 @@ app.use(express.static('public'));
 app.engine('hbs', handlebars.engine);
 // Set the View engine to Handlebars
 app.set('view engine', 'hbs');
+
+// Connection pool 
+const pool = mysql.createPool({
+    connectionLimit : 100, 
+    host            : process.env.DB_HOST, 
+    user            : process.env.DB_USER, 
+    password        : process.env.DB_PASSWORD, 
+    database        : process.env.DB_NAME
+});
+
+// Connect to the database 
+pool.getConnection((err, connection) => {
+    if(err) throw err; // not connected
+    console.log(`Connected as ID: ${connection.threadId}`);
+});
+
 
 // Add an initial route
 app.get('', (req, res) => {

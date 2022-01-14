@@ -65,3 +65,10 @@
 - All of the Bootstrap items are being delivered via CDN
 - Pull the Bootstrap: CSS, Icons, JS, and Navbar
 - Add the default container for the content, _body_, section 
+
+### Database Setup
+- Add MySQL support to Docker-Compose and create the database.
+- Connect to the MySQL database with Workbench (you'll probobly switch to  Sequelize as some point)
+    - Define the _user_ table and create it.
+    - Add some mock data
+- Create a connection pool and _.env_ file (remember, the database server is running in a separate container).
