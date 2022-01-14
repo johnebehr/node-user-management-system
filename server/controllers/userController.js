@@ -28,7 +28,33 @@ exports.view = (req, res) => {
                 console.log(err);
             }
 
-            console.log('The data from user table: \n', rows);
+            // console.log('The data from user table: \n', rows);
         });
     });    
+}
+
+// User search
+exports.find = (req, res) => {
+    pool.getConnection((err, connection) => {
+        if(err) throw err; // not connected
+        console.log(`Connected as ID: ${connection.threadId}`);
+
+        // get the data from the search input
+        let searchTerm = req.body.search;
+        
+        // Use the connection 
+        connection.query('SELECT * FROM user WHERE first_name LIKE ? OR last_name LIKE ?', [`%${searchTerm}%`, `%${searchTerm}%`], (err, rows) => {
+            // When done with the connnection release it 
+            connection.release();
+
+            if(!err){
+                // Pass the result to the template engine
+                res.render('home', {rows});
+            } else {
+                console.log(err);
+            }
+
+            // console.log('The data from user table: \n', rows);
+        });
+    });
 }
