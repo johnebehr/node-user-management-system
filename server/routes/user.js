@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const userController = require('../controllers/userController');
 
-// Add an initial route
-router.get('', (req, res) => {
-    res.render('home');
-});
+// Get all users
+router.get('/', userController.view)
 
 module.exports = router;

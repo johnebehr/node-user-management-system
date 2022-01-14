@@ -76,6 +76,5 @@
 ### Routes and Controllers
 - Refactor app.js to declutter it and provide organization for you controllers and routes.
 - Add a new directory: _server_ and two subdirectories: _controllers_ and _routes_
-
-#### Refactor
 - Move the existing route to _server/routes/user.js_
+- Add the logic for the route to _server/controllers/userController.js_
