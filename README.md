@@ -86,3 +86,7 @@
     
 ### Search
 - Modify the search form in _main.js_ to submit the input text via a POST request to a MySQL query 
+
+### Submit Record 
+- Create the ability to add a new user 
+    - Add a button that will send the app user to a new endpoint for the add user form.

@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const mysql = require('mysql');
 
 // Connection pool 
@@ -57,4 +58,9 @@ exports.find = (req, res) => {
             // console.log('The data from user table: \n', rows);
         });
     });
+}
+
+// Add a new user
+exports.createUser = (req, res) => {
+    res.render('add-user');
 }
