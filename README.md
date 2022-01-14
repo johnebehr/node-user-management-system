@@ -84,3 +84,5 @@
 - Query the database and pass the results to the template engine. 
     - Also console.log the query result to make sure that data is returned.
     
+### Search
+- Modify the search form in _main.js_ to submit the input text via a POST request to a MySQL query 
