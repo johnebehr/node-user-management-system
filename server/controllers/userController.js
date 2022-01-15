@@ -80,7 +80,7 @@ exports.createUser = (req, res) => {
 
             if(!err){
                 // Pass the result to the template engine
-                res.render('add-user');
+                res.render('add-user', {alert: 'User added successfully'});
             } else {
                 console.log(err);
             }
