@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const mysql = require('mysql');
 
 // Connection pool 
@@ -50,6 +51,36 @@ exports.find = (req, res) => {
             if(!err){
                 // Pass the result to the template engine
                 res.render('home', {rows});
+            } else {
+                console.log(err);
+            }
+
+            // console.log('The data from user table: \n', rows);
+        });
+    });
+}
+
+exports.showForm = (req, res) => {
+    res.render('add-user');
+}
+
+// Add a new user
+exports.createUser = (req, res) => {
+    const {first_name, last_name, email, phone, comments} = req.body;
+
+    // Connect to the database 
+    pool.getConnection((err, connection) => {
+        if(err) throw err; // not connected
+        console.log(`Connected as ID: ${connection.threadId}`);
+
+        // Use the connection 
+        connection.query('INSERT INTO user SET first_name = ?, last_name = ?, email = ?, phone = ?, comments = ?', [first_name, last_name, email, phone, comments], (err, rows) => {
+            // When done with the connnection release it 
+            connection.release();
+
+            if(!err){
+                // Pass the result to the template engine
+                res.render('add-user', {alert: 'User added successfully'});
             } else {
                 console.log(err);
             }

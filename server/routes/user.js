@@ -6,4 +6,8 @@ const userController = require('../controllers/userController');
 router.get('/', userController.view);
 router.post('/', userController.find);
 
+// Display the User form
+router.get('/adduser', userController.showForm);
+router.post('/adduser', userController.createUser);
+
 module.exports = router;
