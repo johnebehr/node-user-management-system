@@ -90,3 +90,7 @@
 ### Submit Record 
 - Create the ability to add a new user 
     - Add a button that will send the app user to a new endpoint for the add user form.
+
+### Update Record
+- Add a new Handlebars template - _edit-user.hbs_ 
+- Use a "partial" for the Update form
