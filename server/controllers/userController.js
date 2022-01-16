@@ -132,14 +132,33 @@ exports.updateUser = (req, res) => {
 
         // Query the database
         connection.query(
-            'UPDATE user SET first_name = ?, last_name = ? WHERE id = ?',
-            [first_name, last_name, req.params.id],
+            'UPDATE user SET first_name = ?, last_name = ?, email = ?, phone = ?, comments = ? WHERE id = ?',
+            [first_name, last_name, email, phone, comments, req.params.id],
             (err, rows) => {
                 // When done with the connection, release it
                 connection.release;
 
                 if(!err) {
-
+                    pool.getConnection((err, connection) => {
+                        if(err) throw err; // Not connected
+                        connection.query(
+                            'SELECT * FROM user WHERE id = ?', 
+                            [req.params.id], 
+                            (err, rows) => {
+                                // Release the connection when done querying
+                                connection.release();
+                                if(!err) {
+                                    res.render(
+                                        'edit-user', 
+                                        {rows, alert: `${first_name} has been updated.`}
+                                    );
+                                } else {
+                                    console.log(err);
+                                }
+                                console.log('The data from user table: \n', rows);
+                            }
+                        );
+                    });
                 }
             });
     });

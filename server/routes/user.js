@@ -12,6 +12,6 @@ router.post('/adduser', userController.createUser);
 
 // Edit a user
 router.get('/edituser/:id', userController.editUser);
-// router.post('/edituser/:id', userController.editUser);
+router.post('/edituser/:id', userController.updateUser);
 
 module.exports = router;
