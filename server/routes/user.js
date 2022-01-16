@@ -6,8 +6,12 @@ const userController = require('../controllers/userController');
 router.get('/', userController.view);
 router.post('/', userController.find);
 
-// Display the User form
+// Add a user
 router.get('/adduser', userController.showForm);
 router.post('/adduser', userController.createUser);
+
+// Edit a user
+router.get('/edituser/:id', userController.editUser);
+// router.post('/edituser/:id', userController.editUser);
 
 module.exports = router;
