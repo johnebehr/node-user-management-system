@@ -14,10 +14,10 @@ router.post('/adduser', userController.createUser);
 router.get('/edituser/:id', userController.editUser);
 router.post('/edituser/:id', userController.updateUser);
 
-// Delete a user
-router.get('/:id', userController.deleteUser);
-
 // Show user detail
 router.get('/viewuser/:id', userController.viewDetail);
+
+// Delete a user
+router.get('/:id', userController.deleteUser);
 
 module.exports = router;

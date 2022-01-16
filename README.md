@@ -101,3 +101,6 @@
 
 ### User Detail Page
 - Add a new Handlebars template - _view-user.hbs_
+
+### Delete User Message
+- Need to move the router for the Delete user so that it isn't accidently called.
