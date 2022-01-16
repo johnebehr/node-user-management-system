@@ -163,3 +163,29 @@ exports.updateUser = (req, res) => {
             });
     });
 }
+
+// Delete a user
+exports.deleteUser = (req, res) => {
+    pool.getConnection((err, connection) => {
+        if (err) throw err; // not connected
+        console.log(`Request Body Param: ${req.params.id}`);
+
+        // Use the connection 
+        connection.query(
+            'DELETE FROM user WHERE id = ?', 
+            [parseInt(req.params.id)], 
+            (err, rows) => {
+            // When done with the connnection release it 
+            connection.release();
+
+            if (!err) {
+                // Pass the result to the template engine
+                res.redirect('/');
+            } else {
+                console.log(err);
+            }
+
+            // console.log('The data from user table: \n', rows);
+        });
+    });
+}

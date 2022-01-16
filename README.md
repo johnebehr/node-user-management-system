@@ -94,3 +94,7 @@
 ### Update Record
 - Add a new Handlebars template - _edit-user.hbs_ 
 - Use a "partial" for the Update form
+
+### Delete Record
+- Delete a record by id
+- No need to create a new page. 
