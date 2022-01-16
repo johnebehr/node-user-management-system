@@ -98,3 +98,6 @@
 ### Delete Record
 - Delete a record by id
 - No need to create a new page. 
+
+### User Detail Page
+- Add a new Handlebars template - _view-user.hbs_

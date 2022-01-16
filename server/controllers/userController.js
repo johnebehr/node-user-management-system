@@ -189,3 +189,27 @@ exports.deleteUser = (req, res) => {
         });
     });
 }
+
+// Render the user detail
+exports.viewDetail = (req, res) => {
+    pool.getConnection((err, connection) => {
+        if(err) throw err;
+        console.log(`Connected as ID: ${connection.threadId}`);
+
+        // Fetch the user data
+        connection.query(
+            'SELECT * FROM user WHERE id = ?',
+            [req.params.id], 
+            (err, rows) => {
+            // Release the connection when finished
+            connection.release();
+
+            if(!err) {
+                res.render('view-user', {rows});
+            } else {
+                console.log(err);
+            }
+            console.log('The data from the user table: \n', rows);
+        });
+    });
+}
