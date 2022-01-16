@@ -18,13 +18,14 @@ exports.view = (req, res) => {
         console.log(`Connected as ID: ${connection.threadId}`);
 
         // Use the connection 
-        connection.query('SELECT * FROM user', (err, rows) => {
+        connection.query('SELECT * FROM user WHERE status = "active"', (err, rows) => {
             // When done with the connnection release it 
             connection.release();
 
             if (!err) {
+                let removedUser = req.query.removed;
                 // Pass the result to the template engine
-                res.render('home', { rows });
+                res.render('home', { rows, removedUser });
             } else {
                 console.log(err);
             }
@@ -172,15 +173,16 @@ exports.deleteUser = (req, res) => {
 
         // Use the connection 
         connection.query(
-            'DELETE FROM user WHERE id = ?', 
-            [parseInt(req.params.id)], 
+            'UPDATE user SET status = ? WHERE id = ?', 
+            ['removed', parseInt(req.params.id)], 
             (err, rows) => {
             // When done with the connnection release it 
             connection.release();
 
             if (!err) {
+                let removedUser = encodeURIComponent('User successfully removed.');
                 // Pass the result to the template engine
-                res.redirect('/');
+                res.redirect('/?removed=' + removedUser);
             } else {
                 console.log(err);
             }
